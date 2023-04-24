@@ -46,7 +46,7 @@ public class StudentService {
     @Transactional              // It means that the entity goes in a managed state
     public void updateStudent(Long studentId, String name, String email) {
         Student student = studentRepository.findById(studentId)
-                .orElseThrow(() -> new IllegalStateException("Student with id" + studentId + "does not exist"));
+                .orElseThrow(() -> new IllegalStateException("Student with id " + studentId + " does not exist"));
 
         if (name != null  && name.length() > 0 && !Objects.equals(student.getName(), name)) {
             student.setName(name);
